@@ -80,7 +80,6 @@ namespace WindowsFormsApp1
                 
             }
         }
-
         public void printHeader(Form1 form) {
             form.printOnList1("ID",ID);
             form.printOnList1("File Size",FSize);

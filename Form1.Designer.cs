@@ -71,6 +71,7 @@
             this.ClientSize = new System.Drawing.Size(942, 600);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Menu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.Menu;
             this.Name = "Form1";
             this.Menu.ResumeLayout(false);
