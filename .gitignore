@@ -1,0 +1,8 @@
+#Ignore everything 
+* 
+#But not these files... 
+!.gitignore 
+!Form1.cs
+!Form1.Designer.cs
+!Program.cs
+!BMPFile.cs
