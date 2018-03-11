@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
                 string[] arrAllFiles = file.FileNames; //used when Multiselect = true           
                 BMPFile myBMP = new BMPFile(sFileName);
                 myBMP.printHeader(this);
+                pictureBox1.Image = myBMP.bitmap;
             }
 
         }
@@ -42,6 +43,5 @@ namespace WindowsFormsApp1
             var item1 = new ListViewItem(new[] { A, String.Format("0x{0:X}", B) });
             listView1.Items.Add(item1);
         }
-        
     }
 }

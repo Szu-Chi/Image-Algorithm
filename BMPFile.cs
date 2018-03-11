@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Drawing;
 
 namespace WindowsFormsApp1
 {
@@ -28,6 +29,15 @@ namespace WindowsFormsApp1
         private UInt32 UsedColors;
         private UInt32 ImportantColors;
 
+        public Bitmap bitmap;
+        public Int32 getWidth()
+        {
+            return Width;
+        }
+        public Int32 getHeight()
+        {
+            return Height;
+        }
         public BMPFile(string fileName) {
             if (File.Exists(fileName)) {
                 using (FileStream iStream = new FileStream(fileName, FileMode.Open)) {
@@ -76,8 +86,21 @@ namespace WindowsFormsApp1
                     VResolution = reader.ReadInt32();
                     UsedColors = reader.ReadUInt32();
                     ImportantColors = reader.ReadUInt32();
+
+                    bitmap = new Bitmap(Width, Height);
+                    Color c;
+                    iStream.Seek(DataOffset, SeekOrigin.Begin);
+                    for (int i = Height - 1; i >= 0; i--) {
+                        for (int j = 0; j < Width; j++)
+                        {
+                            byte B = reader.ReadByte();
+                            byte G = reader.ReadByte();
+                            byte R = reader.ReadByte();
+                            c = Color.FromArgb(255,R,G,B);
+                            bitmap.SetPixel(j,i,c);
+                        }
+                    }
                 }
-                
             }
         }
         public void printHeader(Form1 form) {
