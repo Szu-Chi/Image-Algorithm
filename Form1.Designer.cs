@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.Menu1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.averagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -40,19 +42,28 @@
             // 
             this.Menu1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.LoadFileToolStripMenuItem,
+            this.grayScaleToolStripMenuItem});
             this.Menu1.Location = new System.Drawing.Point(0, 0);
             this.Menu1.Name = "Menu1";
             this.Menu1.Size = new System.Drawing.Size(1260, 28);
             this.Menu1.TabIndex = 0;
             this.Menu1.Text = "menuStrip1";
-            this.Menu1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // fileToolStripMenuItem
+            // LoadFileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.fileToolStripMenuItem.Text = "LoadFile";
+            this.LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
+            this.LoadFileToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.LoadFileToolStripMenuItem.Text = "LoadFile";
+            this.LoadFileToolStripMenuItem.Click += new System.EventHandler(this.FileLoadToolStripMenuItem_Click);
+            // 
+            // grayScaleToolStripMenuItem
+            // 
+            this.grayScaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.averagingToolStripMenuItem});
+            this.grayScaleToolStripMenuItem.Name = "grayScaleToolStripMenuItem";
+            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.grayScaleToolStripMenuItem.Text = "GrayScale";
             // 
             // listView1
             // 
@@ -61,7 +72,7 @@
             this.listView1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.listView1.Location = new System.Drawing.Point(884, 30);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(364, 558);
+            this.listView1.Size = new System.Drawing.Size(376, 571);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -72,6 +83,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(876, 558);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // averagingToolStripMenuItem
+            // 
+            this.averagingToolStripMenuItem.Name = "averagingToolStripMenuItem";
+            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.averagingToolStripMenuItem.Text = "Averaging";
+            this.averagingToolStripMenuItem.Click += new System.EventHandler(this.averagingToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -96,9 +114,11 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip Menu1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LoadFileToolStripMenuItem;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem grayScaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem averagingToolStripMenuItem;
     }
 }
 

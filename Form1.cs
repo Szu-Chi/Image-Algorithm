@@ -13,16 +13,24 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        
+        BMPFile myBMP;
         public Form1()
         {
             InitializeComponent();
             listView1.View = View.Details;
-            listView1.Columns.Add("Variable", 140, HorizontalAlignment.Left);
+            listView1.Columns.Add("Variable", 149, HorizontalAlignment.Left);
             listView1.Columns.Add("Value", 130, HorizontalAlignment.Left);
+            myBMP = new BMPFile("defaultIamge.bmp");
+            myBMP.printHeader(this);
+            pictureBox1.Image = myBMP.bitmap;
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        public void printOnList1<T>(String A,T B ) {
+            var item1 = new ListViewItem(new[] { A, String.Format("0x{0:X}", B) });
+            listView1.Items.Add(item1);
+        }
+
+        private void FileLoadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*";
@@ -32,16 +40,16 @@ namespace WindowsFormsApp1
             {
                 string sFileName = file.FileName;
                 string[] arrAllFiles = file.FileNames; //used when Multiselect = true           
-                BMPFile myBMP = new BMPFile(sFileName);
+                myBMP = new BMPFile(sFileName);
                 myBMP.printHeader(this);
                 pictureBox1.Image = myBMP.bitmap;
             }
-
         }
 
-        public void printOnList1<T>(String A,T B ) {
-            var item1 = new ListViewItem(new[] { A, String.Format("0x{0:X}", B) });
-            listView1.Items.Add(item1);
+        private void averagingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myBMP.bitmap = GrayScale.Averaging(myBMP.bitmap);
+            pictureBox1.Image = myBMP.bitmap;
         }
     }
 }
