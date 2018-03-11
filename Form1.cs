@@ -51,5 +51,11 @@ namespace WindowsFormsApp1
             myBMP.bitmap = GrayScale.Averaging(myBMP.bitmap);
             pictureBox1.Image = myBMP.bitmap;
         }
+
+        private void luminanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myBMP.bitmap = GrayScale.Luminance(myBMP.bitmap);
+            pictureBox1.Image = myBMP.bitmap;
+        }
     }
 }

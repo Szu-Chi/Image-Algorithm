@@ -31,9 +31,10 @@
             this.Menu1 = new System.Windows.Forms.MenuStrip();
             this.LoadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.averagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.luminanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,10 +61,18 @@
             // grayScaleToolStripMenuItem
             // 
             this.grayScaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.averagingToolStripMenuItem});
+            this.averagingToolStripMenuItem,
+            this.luminanceToolStripMenuItem});
             this.grayScaleToolStripMenuItem.Name = "grayScaleToolStripMenuItem";
             this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.grayScaleToolStripMenuItem.Text = "GrayScale";
+            // 
+            // averagingToolStripMenuItem
+            // 
+            this.averagingToolStripMenuItem.Name = "averagingToolStripMenuItem";
+            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.averagingToolStripMenuItem.Text = "Averaging";
+            this.averagingToolStripMenuItem.Click += new System.EventHandler(this.averagingToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -84,12 +93,12 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // averagingToolStripMenuItem
+            // luminanceToolStripMenuItem
             // 
-            this.averagingToolStripMenuItem.Name = "averagingToolStripMenuItem";
-            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.averagingToolStripMenuItem.Text = "Averaging";
-            this.averagingToolStripMenuItem.Click += new System.EventHandler(this.averagingToolStripMenuItem_Click);
+            this.luminanceToolStripMenuItem.Name = "luminanceToolStripMenuItem";
+            this.luminanceToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.luminanceToolStripMenuItem.Text = "Luminance";
+            this.luminanceToolStripMenuItem.Click += new System.EventHandler(this.luminanceToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -119,6 +128,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem grayScaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem averagingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem luminanceToolStripMenuItem;
     }
 }
 
