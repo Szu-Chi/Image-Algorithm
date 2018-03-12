@@ -30,7 +30,19 @@ namespace WindowsFormsApp1
             listView1.Items.Add(item1);
         }
 
-        private void FileLoadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void averagingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myBMP.bitmap = GrayScale.Averaging(myBMP.bitmap);
+            pictureBox1.Image = myBMP.bitmap;
+        }
+
+        private void luminanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myBMP.bitmap = GrayScale.Luminance(myBMP.bitmap);
+            pictureBox1.Image = myBMP.bitmap;
+        }
+
+        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*";
@@ -46,16 +58,16 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void averagingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myBMP.bitmap = GrayScale.Averaging(myBMP.bitmap);
-            pictureBox1.Image = myBMP.bitmap;
-        }
-
-        private void luminanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            myBMP.bitmap = GrayScale.Luminance(myBMP.bitmap);
-            pictureBox1.Image = myBMP.bitmap;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                myBMP.Save(saveFileDialog1.FileName);
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -120,6 +121,45 @@ namespace WindowsFormsApp1
             form.printOnList1("UsedColors",UsedColors);
             form.printOnList1("ImportantColors" ,ImportantColors);
                                                                 
-        }                                                       
+        }
+        public void Save(String FileName) {
+            
+            //MessageBox.Show(FileName);
+            using (FileStream oStream = new FileStream(FileName, FileMode.Create) )
+            {
+                BinaryWriter BW = new BinaryWriter(oStream);
+                oStream.Seek(0x00, SeekOrigin.Begin);
+                BW.Write(ID);
+                BW.Write(FSize);
+                BW.Write(Reserved);
+                BW.Write(DataOffset);
+
+                oStream.Seek(0x0E, SeekOrigin.Begin);
+                BW.Write(DIBHeaderSize);
+                BW.Write(Width);
+                BW.Write(Height);
+                BW.Write(PlaneNum);
+                BW.Write(PerPixelNum);
+                BW.Write(Compression);
+                BW.Write(BitmapSize);
+                BW.Write(HResolution);
+                BW.Write(VResolution);
+                BW.Write(UsedColors);
+                BW.Write(ImportantColors);
+                Color c;
+                for (int i = Height - 1; i >= 0; i--) {
+                    for (int j = 0; j < Width; j++)
+                    {
+                        c = bitmap.GetPixel(j,i);
+                        BW.Write(c.B);
+                        BW.Write(c.G);
+                        BW.Write(c.R);
+                    }
+                }
+                BW.Write(0X00);
+                oStream.Close();
+            }
+            
+        }
     }                                                             
 }

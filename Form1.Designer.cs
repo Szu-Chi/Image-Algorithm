@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.Menu1 = new System.Windows.Forms.MenuStrip();
-            this.LoadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.averagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.luminanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.luminanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +45,7 @@
             // 
             this.Menu1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LoadFileToolStripMenuItem,
+            this.FileToolStripMenuItem,
             this.grayScaleToolStripMenuItem});
             this.Menu1.Location = new System.Drawing.Point(0, 0);
             this.Menu1.Name = "Menu1";
@@ -51,12 +53,21 @@
             this.Menu1.TabIndex = 0;
             this.Menu1.Text = "menuStrip1";
             // 
-            // LoadFileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
-            this.LoadFileToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.LoadFileToolStripMenuItem.Text = "LoadFile";
-            this.LoadFileToolStripMenuItem.Click += new System.EventHandler(this.FileLoadToolStripMenuItem_Click);
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadFileToolStripMenuItem,
+            this.saveFileToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
+            this.FileToolStripMenuItem.Text = "File";
+            // 
+            // loadFileToolStripMenuItem
+            // 
+            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.loadFileToolStripMenuItem.Text = "Load File";
+            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
             // grayScaleToolStripMenuItem
             // 
@@ -70,9 +81,16 @@
             // averagingToolStripMenuItem
             // 
             this.averagingToolStripMenuItem.Name = "averagingToolStripMenuItem";
-            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.averagingToolStripMenuItem.Text = "Averaging";
             this.averagingToolStripMenuItem.Click += new System.EventHandler(this.averagingToolStripMenuItem_Click);
+            // 
+            // luminanceToolStripMenuItem
+            // 
+            this.luminanceToolStripMenuItem.Name = "luminanceToolStripMenuItem";
+            this.luminanceToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.luminanceToolStripMenuItem.Text = "Luminance";
+            this.luminanceToolStripMenuItem.Click += new System.EventHandler(this.luminanceToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -93,12 +111,12 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // luminanceToolStripMenuItem
+            // saveFileToolStripMenuItem
             // 
-            this.luminanceToolStripMenuItem.Name = "luminanceToolStripMenuItem";
-            this.luminanceToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.luminanceToolStripMenuItem.Text = "Luminance";
-            this.luminanceToolStripMenuItem.Click += new System.EventHandler(this.luminanceToolStripMenuItem_Click);
+            this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveFileToolStripMenuItem.Text = "Save File";
+            this.saveFileToolStripMenuItem.Click += new System.EventHandler(this.saveFileToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -123,12 +141,14 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip Menu1;
-        private System.Windows.Forms.ToolStripMenuItem LoadFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem grayScaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem averagingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem luminanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
     }
 }
 
