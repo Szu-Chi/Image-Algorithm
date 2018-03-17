@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         BMPFile myBMP;
+        Bitmap BitmapE;
         public Form1()
         {
             InitializeComponent();
@@ -32,14 +33,14 @@ namespace WindowsFormsApp1
 
         private void averagingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myBMP.bitmap = GrayScale.Averaging(myBMP.bitmap);
-            pictureBox1.Image = myBMP.bitmap;
+            BitmapE = GrayScale.Averaging(myBMP.bitmap);
+            pictureBox1.Image = BitmapE;
         }
 
         private void luminanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myBMP.bitmap = GrayScale.Luminance(myBMP.bitmap);
-            pictureBox1.Image = myBMP.bitmap;
+            BitmapE = GrayScale.Luminance(myBMP.bitmap);
+            pictureBox1.Image = BitmapE;
         }
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace WindowsFormsApp1
             saveFileDialog1.RestoreDirectory = true;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                myBMP.Save(saveFileDialog1.FileName);
+                myBMP.Save(saveFileDialog1.FileName, BitmapE);
             }
         }
     }

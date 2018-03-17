@@ -9,7 +9,8 @@ namespace WindowsFormsApp1
 {
     class GrayScale
     {
-        public static Bitmap Averaging(Bitmap source){
+        public static Bitmap Averaging(Bitmap _source){
+            Bitmap source = new Bitmap(_source);
             for (int i = 0; i < source.Height; i++) {
                 for (int j = 0; j < source.Width; j++) {
                     Color pixelColor = source.GetPixel(j,i);
@@ -20,8 +21,9 @@ namespace WindowsFormsApp1
             }
             return source;
         }
-        public static Bitmap Luminance(Bitmap source)
+        public static Bitmap Luminance(Bitmap _source)
         {
+            Bitmap source = new Bitmap(_source);
             for (int i = 0; i < source.Height; i++)
             {
                 for (int j = 0; j < source.Width; j++)

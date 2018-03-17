@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
             form.printOnList1("ImportantColors" ,ImportantColors);
                                                                 
         }
-        public void Save(String FileName) {
+        public void Save(String FileName, Bitmap BitmapS) {
             
             //MessageBox.Show(FileName);
             using (FileStream oStream = new FileStream(FileName, FileMode.Create) )
@@ -150,7 +150,7 @@ namespace WindowsFormsApp1
                 for (int i = Height - 1; i >= 0; i--) {
                     for (int j = 0; j < Width; j++)
                     {
-                        c = bitmap.GetPixel(j,i);
+                        c = BitmapS.GetPixel(j,i);
                         BW.Write(c.B);
                         BW.Write(c.G);
                         BW.Write(c.R);
