@@ -36,5 +36,22 @@ namespace WindowsFormsApp1
             }
             return source;
         }
+
+        public static Bitmap Desaturation(Bitmap _source) {
+            Bitmap source= new Bitmap(_source);
+            for (int i = 0; i < source.Height; i++)
+            {
+                for (int j = 0; j < source.Width; j++)
+                {
+                    Color pixelColor = source.GetPixel(j, i);
+                    int max = (int)Math.Max(pixelColor.R, (Math.Max(pixelColor.B, pixelColor.G)));
+                    int min = (int)Math.Min(pixelColor.R, (Math.Min(pixelColor.B, pixelColor.G)));
+                    int gray = (max + min) / 2;
+                    pixelColor = Color.FromArgb(255, gray, gray, gray);
+                    source.SetPixel(j, i, pixelColor);
+                }
+            }
+            return source;
+        }
     }
 }

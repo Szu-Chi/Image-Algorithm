@@ -70,5 +70,11 @@ namespace WindowsFormsApp1
                 myBMP.Save(saveFileDialog1.FileName, BitmapE);
             }
         }
+
+        private void desaturationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BitmapE = GrayScale.Desaturation(myBMP.bitmap);
+            pictureBox1.Image = BitmapE;
+        }
     }
 }
