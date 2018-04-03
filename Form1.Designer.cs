@@ -35,9 +35,11 @@
             this.grayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.averagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.luminanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desaturationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.desaturationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compositingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alphaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,10 +49,11 @@
             this.Menu1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
-            this.grayScaleToolStripMenuItem});
+            this.grayScaleToolStripMenuItem,
+            this.compositingToolStripMenuItem});
             this.Menu1.Location = new System.Drawing.Point(0, 0);
             this.Menu1.Name = "Menu1";
-            this.Menu1.Size = new System.Drawing.Size(1260, 27);
+            this.Menu1.Size = new System.Drawing.Size(1260, 28);
             this.Menu1.TabIndex = 0;
             this.Menu1.Text = "menuStrip1";
             // 
@@ -90,16 +93,23 @@
             // averagingToolStripMenuItem
             // 
             this.averagingToolStripMenuItem.Name = "averagingToolStripMenuItem";
-            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.averagingToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.averagingToolStripMenuItem.Text = "Averaging";
             this.averagingToolStripMenuItem.Click += new System.EventHandler(this.averagingToolStripMenuItem_Click);
             // 
             // luminanceToolStripMenuItem
             // 
             this.luminanceToolStripMenuItem.Name = "luminanceToolStripMenuItem";
-            this.luminanceToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.luminanceToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.luminanceToolStripMenuItem.Text = "Luminance";
             this.luminanceToolStripMenuItem.Click += new System.EventHandler(this.luminanceToolStripMenuItem_Click);
+            // 
+            // desaturationToolStripMenuItem
+            // 
+            this.desaturationToolStripMenuItem.Name = "desaturationToolStripMenuItem";
+            this.desaturationToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.desaturationToolStripMenuItem.Text = "Desaturation";
+            this.desaturationToolStripMenuItem.Click += new System.EventHandler(this.desaturationToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -121,12 +131,20 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // desaturationToolStripMenuItem
+            // compositingToolStripMenuItem
             // 
-            this.desaturationToolStripMenuItem.Name = "desaturationToolStripMenuItem";
-            this.desaturationToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.desaturationToolStripMenuItem.Text = "Desaturation";
-            this.desaturationToolStripMenuItem.Click += new System.EventHandler(this.desaturationToolStripMenuItem_Click);
+            this.compositingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alphaToolStripMenuItem});
+            this.compositingToolStripMenuItem.Name = "compositingToolStripMenuItem";
+            this.compositingToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.compositingToolStripMenuItem.Text = "Compositing";
+            // 
+            // alphaToolStripMenuItem
+            // 
+            this.alphaToolStripMenuItem.Name = "alphaToolStripMenuItem";
+            this.alphaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.alphaToolStripMenuItem.Text = "Alpha";
+            this.alphaToolStripMenuItem.Click += new System.EventHandler(this.alphaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -160,6 +178,8 @@
         private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desaturationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compositingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alphaToolStripMenuItem;
     }
 }
 

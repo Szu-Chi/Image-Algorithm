@@ -14,7 +14,21 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         BMPFile myBMP;
-        Bitmap BitmapE;
+        Bitmap BitmapE; //effect Bitmap
+        public void loadBMPFile() {
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*";
+            file.FilterIndex = 1;
+            file.Multiselect = true;
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = file.FileName;
+                string[] arrAllFiles = file.FileNames; //used when Multiselect = true           
+                myBMP = new BMPFile(sFileName);
+                myBMP.printHeader(this);
+                pictureBox1.Image = myBMP.bitmap;
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +37,7 @@ namespace WindowsFormsApp1
             listView1.Columns.Add("Value", 130, HorizontalAlignment.Left);
             myBMP = new BMPFile("defaultIamge.bmp");
             myBMP.printHeader(this);
+            BitmapE = myBMP.bitmap;
             pictureBox1.Image = myBMP.bitmap;
         }
 
@@ -45,18 +60,9 @@ namespace WindowsFormsApp1
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog file = new OpenFileDialog();
-            file.Filter = "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*";
-            file.FilterIndex = 1;
-            file.Multiselect = true;
-            if (file.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = file.FileName;
-                string[] arrAllFiles = file.FileNames; //used when Multiselect = true           
-                myBMP = new BMPFile(sFileName);
-                myBMP.printHeader(this);
-                pictureBox1.Image = myBMP.bitmap;
-            }
+            listView1.Items.Clear();
+            loadBMPFile();
+            BitmapE = myBMP.bitmap;
         }
 
         private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +80,26 @@ namespace WindowsFormsApp1
         private void desaturationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BitmapE = GrayScale.Desaturation(myBMP.bitmap);
+            pictureBox1.Image = BitmapE;
+        }
+
+        private void alphaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadBMPFile();
+            Color c,SrcPixelColor,DstPixelColor;
+            int R, G, B;
+            const int srcA = 75;
+            for (int i = 0; i < BitmapE.Height; i++) {
+                for (int j = 0; j < BitmapE.Width; j++) {
+                    SrcPixelColor = myBMP.bitmap.GetPixel(j,i);
+                    DstPixelColor = BitmapE.GetPixel(j,i);
+                    R = (SrcPixelColor.R * srcA + DstPixelColor.R * (255 - srcA))/255;
+                    G = (SrcPixelColor.G * srcA + DstPixelColor.G * (255 - srcA))/255;
+                    B = (SrcPixelColor.B * srcA + DstPixelColor.B * (255 - srcA))/255;
+                    c = Color.FromArgb(255,R,G,B);
+                    BitmapE.SetPixel(j,i,c);
+                }
+            }
             pictureBox1.Image = BitmapE;
         }
     }
